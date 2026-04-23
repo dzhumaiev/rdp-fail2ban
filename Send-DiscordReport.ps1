@@ -1,5 +1,5 @@
 ﻿# === Configuration ===
-$hookUrl = "https://discord.com/api/webhooks/1496819330715750410/z3nAjoQoiFK7cMbvZOpyiFJm4a5Gkuvs8rEtw1dWV6ut8jrpYQ5xzDjNbXhghVJCNQu3"
+$hookUrl = "DISCORD URL"
 $BlockedDbPath = 'C:\Program Files (x86)\rdp_guard\blocked_ips.db'
 $SentDbPath = 'C:\Program Files (x86)\rdp_guard\sent_to_discord.txt'
 

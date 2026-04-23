@@ -24,7 +24,7 @@ $newlyUnblocked = $alreadySent | Where-Object { $_ -notin $currentBlocked }
 
 # --- Process New Blocks ---
 foreach ($ip in $newlyBlocked) {
-    $body = @{ content = " **IP Blocked:** $ip on Server: $($env:COMPUTERNAME) UPP3" } | ConvertTo-Json
+    $body = @{ content = " **IP Blocked:** $ip on Server: $($env:COMPUTERNAME)" } | ConvertTo-Json
     try {
         Invoke-RestMethod -Uri $hookUrl -Method Post -Body $body -ContentType "application/json"
         Add-Content -Path $SentDbPath -Value $ip
@@ -38,7 +38,7 @@ if ($newlyUnblocked) {
     $alreadySent | ForEach-Object { if ($_ -notin $newlyUnblocked) { $updatedSentList.Add($_) } }
 
     foreach ($ip in $newlyUnblocked) {
-        $body = @{ content = " **IP Unblocked/Deleted:** $ip on Server: $($env:COMPUTERNAME) UPP3" } | ConvertTo-Json
+        $body = @{ content = " **IP Unblocked/Deleted:** $ip on Server: $($env:COMPUTERNAME)" } | ConvertTo-Json
         try {
             Invoke-RestMethod -Uri $hookUrl -Method Post -Body $body -ContentType "application/json"
             Start-Sleep -Milliseconds 500
